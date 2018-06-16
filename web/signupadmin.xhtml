@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <f:facet name="last">
+
+        <link type="text/css" rel="stylesheet" href="resources/plugins/bootstrap/css/bootstrap.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/font-awesome/css/font-awesome.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/login.css"/>
+    </f:facet>
+</h:head>
+
+<h:body>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-offset-7 col-md-5 ">
+
+                <ui:include src="views/auth/signUpAdmin.xhtml"/>
+
+            </div>
+        </div>
+
+
+
+
+        <!--Beging Footer declaration-->
+        <!--  <div class="footer navbar-fixed-bottom">
+
+        </div>-->
+        <!--End Footer declaration-->
+
+    </div>
+    <div class="footer navbar-fixed-bottom">
+        <div class="foot1">
+
+
+
+
+
+
+            <h:panelGroup>
+
+
+
+
+
+                <p:dialog header="Developpement par" widgetVar="dlg3"
+                          showEffect="explode"
+                          hideEffect="explode" height="300">
+                    <div align="center">
+                        <img class="icon" src="resources/images/formation-background.png" alt="Icon"/>
+
+                        <div class="alert alert-info">
+                            <strong>Réalisé par</strong> <br/>
+
+                            - Belabbes Mohamed ABdelillah<br/>
+
+
+                            <strong>L'encadrement</strong> <br/>
+                            - ABDELHAMID MALKI<br/><br/>
+                            <strong>Collaboration avec</strong><br/>
+                            <a href="http://www.esi-sba.dz/fr">
+                                <img width="35px" class="icon"  src="resources/images/Esi-Sba_Logo.jpg"
+                                     alt="Icon"/>
+                            </a>
+                        </div>
+
+                    </div>
+                </p:dialog>
+            </h:panelGroup>
+        </div>
+    </div>
+
+</h:body>
+</html>

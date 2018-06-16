@@ -1,0 +1,121 @@
+<ui:composition
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+>
+
+
+    <style>
+        /**  messages space **/
+        .error {
+            color: red;
+            font-size: medium;
+        }
+
+        /**  messages space **/
+    </style>
+    <section class="tab_container">
+        <div class="contents">
+            <form>
+
+                <h:form id="authentificationForm">
+
+
+                    <div class="row">
+                        <!--email input-->
+                        <div class="form-group col-md-12">
+                            <label for="Username" class="control-label">Adresse E-mail</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="Username"
+                                             a:placeholder="Username"
+                                             value="#{authControl.username}"
+                                             label="email@example.com"
+                                             required="true"
+                                             name="Username"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="Username"/>
+
+                            </div>
+                        </div>
+                        <!--email input-->
+
+
+                        <!--password input-->
+                        <div class="form-group col-md-12">
+                            <label for="Password" class="control-label">
+                                Mot de pass
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-unlock-alt"></i> </span>
+
+                                <h:inputSecret class="form-control"
+                                               id="Password"
+                                               a:placeholder="Password"
+                                               value="#{authControl.password}"
+                                               label="Password"
+                                               required="true"
+                                               requiredMessage="⊗"
+
+                                >
+                                    <!--<f:validateLength minimum="5"/>-->
+                                </h:inputSecret>
+                                <h:message styleClass="error" for="Password"/>
+                                <!--lable attribute is for handling error-->
+
+                            </div>
+
+
+                            <br/>
+                            <p:outputLabel value="Vous êtes? :" for="dd"/>
+                            <p:autoComplete id="dd" dropdown="true" value="#{authControl.type}"
+
+                                            completeMethod="#{authControl.gettingTypeCompte()}"/>
+
+                        </div>
+                        <div class="form-group col-md-5 col-md-offset-1">
+                            <div class="checkbox checkbox-primary">
+                                <input id="checkbox2" type="checkbox" name="remember"/>
+                                <label for="checkbox2">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <!--password input-->
+                        <div class="form-group col-md-5 col-md-offset-7">
+                            <h:commandButton id="commandButton" process="@this authentificationForm"
+                                             class="btn btn-primary btn-login" value="Se connecter"
+                                             action="#{authControl.validateUsernamePassword}"/>
+                            <div class="clearfix"></div>
+
+                            <a class="btn btn-link btn-forgot hidden" href="#">
+                                Forgot Your Password?
+                            </a>
+
+                        </div>
+                    </div>
+
+                </h:form>
+            </form>
+            <h:form>
+                <div style="align-content: center;display: flex;justify-content: space-around;margin-top: 10px">
+                    <h:commandButton id="aa" process="@this authentificationForm" class="btn btn-success"
+                                     value="signup as student" action="#{navigationControl.goToSignUpStudent()}"/>
+                    <h:commandButton id="bb" process="@this authentificationForm" class="btn btn-warning "
+                                     value="signup as admin" action="#{navigationControl.goToSignUpAdmin()}"/>
+                </div>
+            </h:form>
+        </div>
+    </section>
+</ui:composition>

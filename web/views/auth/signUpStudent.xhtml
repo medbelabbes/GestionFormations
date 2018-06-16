@@ -1,0 +1,376 @@
+<ui:composition
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+>
+
+
+    <style>
+        /**  messages space **/
+        .error {
+            color: red;
+            font-size: medium;
+        }
+
+        /**  messages space **/
+    </style>
+    <section class="tab_container">
+        <div class="contents">
+            <form>
+
+                <h:form id="authentificationForm">
+
+
+                    <div class="row">
+                        <!--nom input-->
+                        <div class="form-group col-md-12">
+                            <label for="Nom" class="control-label">Nom d'étudiant</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="Nom"
+                                             a:placeholder="Nom etudiant"
+                                             value="#{authControl.nomEtudiant}"
+                                             required="true"
+                                             name="Nom"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="Nom"/>
+
+                            </div>
+                        </div>
+                        <!--nom input-->
+
+                        <!--prenom input-->
+                        <div class="form-group col-md-12">
+                            <label for="prenom" class="control-label">Prénom d'étudiant</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="prenom"
+                                             a:placeholder="Prénom etudiant"
+                                             value="#{authControl.prenomEtudiant}"
+                                             required="true"
+                                             name="prenom"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="prenom"/>
+
+                            </div>
+                        </div>
+                        <!--prenom input-->
+
+                        <!--email input-->
+                        <div class="form-group col-md-12">
+                            <label for="email" class="control-label">Adresse E-mail</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <i class="fa fa-envelope"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="email"
+                                             a:placeholder="email"
+                                             value="#{authControl.email}"
+                                             label="email@example.com"
+                                             required="true"
+                                             name="email"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="email"/>
+
+                            </div>
+                        </div>
+                        <!--email input-->
+
+                        <!--username input-->
+                        <div class="form-group col-md-12">
+                            <label for="username" class="control-label">username number</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-user"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="username"
+                                             a:placeholder="username"
+                                             value="#{authControl.username}"
+                                             required="true"
+                                             name="username"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="username"/>
+
+                            </div>
+                        </div>
+                        <!--username input-->
+
+                        <!--phone input-->
+                        <div class="form-group col-md-12">
+                            <label for="Phone" class="control-label">Phone number</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-phone-square"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="Phone"
+                                             a:placeholder="Phone"
+                                             value="#{authControl.phone}"
+                                             required="true"
+                                             name="Phone"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="Phone"/>
+
+                            </div>
+                        </div>
+                        <!--phone input-->
+
+                        <!--date de naissance input-->
+                        <div class="form-group col-md-12">
+                            <label for="dateNaissance" class="control-label">Date de naissance</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i> </span>
+
+                                <p:calendar class="form-control"
+                                            id="dateNaissance"
+                                            a:placeholder="Date de naissance"
+                                            value="#{authControl.dateNaissance}"
+                                            required="true"
+                                            name="dateNaissance"
+                                            requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </p:calendar>
+                                <h:message styleClass="error" for="dateNaissance"/>
+
+                            </div>
+                        </div>
+                        <!--date de naissance input-->
+
+                        <!--lieuNassaince input-->
+                        <div class="form-group col-md-12">
+                            <label for="lieuNassaince" class="control-label">Lieu de nassaince</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-map-marker"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="lieuNassaince"
+                                             a:placeholder="Lieu de naissance"
+                                             value="#{authControl.lieuNaissance}"
+                                             required="true"
+                                             name="lieuNassaince"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="lieuNassaince"/>
+
+                            </div>
+                        </div>
+                        <!--lieuNassaince input-->
+
+
+                        <!--password input-->
+                        <div class="form-group col-md-12">
+                            <label for="Password" class="control-label">
+                                Mot de pass
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-unlock-alt"></i> </span>
+
+                                <h:inputSecret class="form-control"
+                                               id="Password"
+                                               a:placeholder="Password"
+                                               value="#{authControl.password}"
+                                               label="Password"
+                                               required="true"
+                                               requiredMessage="⊗"
+
+                                >
+                                    <!--<f:validateLength minimum="5"/>-->
+                                </h:inputSecret>
+                                <h:message styleClass="error" for="Password"/>
+                                <!--lable attribute is for handling error-->
+                            </div>
+                        </div>
+                        <!--password input-->
+
+                        <!--confirmpassword input-->
+                        <div class="form-group col-md-12">
+                            <label for="confirmpassword" class="control-label">
+                                Confirmer le Mot de pass
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-unlock-alt"></i> </span>
+
+                                <h:inputSecret class="form-control"
+                                               id="confirmpassword"
+                                               a:placeholder="Confirmer Password"
+                                               value="#{authControl.confirmpassword}"
+                                               label="confirmpassword"
+                                               required="true"
+                                               requiredMessage="⊗"
+
+                                >
+                                    <!--<f:validateLength minimum="5"/>-->
+                                </h:inputSecret>
+                                <h:message styleClass="error" for="confirmpassword"/>
+                                <!--lable attribute is for handling error-->
+                            </div>
+                        </div>
+                        <!--confirmpassword input-->
+
+                        <!--number input-->
+                        <div class="form-group col-md-12">
+                            <label for="number" class="control-label">
+                                Numéro de rue
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i
+                                        class="fa fa-sort-numeric-asc"></i> </span>
+
+                                <p:spinner class="form-control"
+                                           id="number"
+                                           a:placeholder="Numéro de rue"
+                                           value="#{authControl.numero}"
+                                           label="number"
+                                           required="true"
+                                           requiredMessage="⊗"
+                                           style="width: 100%;
+                                                   height: 100%;"
+
+                                >
+                                    <!--<f:validateLength minimum="5"/>-->
+                                </p:spinner>
+                                <h:message styleClass="error" for="number"/>
+                                <!--lable attribute is for handling error-->
+                            </div>
+                        </div>
+                        <!--number input-->
+
+                        <!--Rue input-->
+                        <div class="form-group col-md-12">
+                            <label for="Rue" class="control-label">Rue</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-road"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="Rue"
+                                             a:placeholder="Lieu de naissance"
+                                             value="#{authControl.rue}"
+                                             required="true"
+                                             name="Rue"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="Rue"/>
+
+                            </div>
+                        </div>
+                        <!--Rue input-->
+
+
+                        <!--codePostale input-->
+                        <div class="form-group col-md-12">
+                            <label for="codePostale" class="control-label">Code postale</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-archive"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="codePostale"
+                                             a:placeholder="Code postale"
+                                             value="#{authControl.codepost}"
+                                             required="true"
+                                             name="Rue"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="codePostale"/>
+
+                            </div>
+                        </div>
+                        <!--codePostale input-->
+
+
+                        <!--Ville input-->
+                        <div class="form-group col-md-12">
+                            <label for="Ville" class="control-label">Ville</label>
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-globe"></i> </span>
+
+                                <h:inputText class="form-control"
+                                             id="Ville"
+                                             a:placeholder="Ville"
+                                             value="#{authControl.ville}"
+                                             required="true"
+                                             name="Rue"
+                                             requiredMessage="⊗"
+
+                                >
+                                    <!--validatorMessage="✘"-->
+                                    <!--<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />-->
+                                </h:inputText>
+                                <h:message styleClass="error" for="Ville"/>
+
+                            </div>
+                        </div>
+                        <!--Ville input-->
+
+                    </div>
+                    <div style="align-content: center;display: flex;justify-content: space-around;margin-top: 10px">
+                        <h:commandButton id="aa" process="@this authentificationForm" class="btn btn-success"
+                                         value="Inscrire" action="#{authControl.subscribeStudent()}"/>
+
+                    </div>
+                </h:form>
+
+            </form>
+        </div>
+    </section>
+</ui:composition>

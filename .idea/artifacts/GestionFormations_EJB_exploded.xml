@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="GestionFormations:EJB exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/GestionFormations_EJB_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="GestionFormations/ejb/EJB" />
+      <element id="module-output" name="GestionFormations" />
+    </root>
+  </artifact>
+</component>

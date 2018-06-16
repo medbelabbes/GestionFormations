@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="TrainingManager" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>entities.Etudiant</class>
+        <class>entities.Adresse</class>
+        <class>entities.Administrateur</class>
+        <class>entities.Formation</class>
+        <class>entities.Chapitre</class>
+        <class>entities.Centre</class>
+        <class>entities.Localisation</class>
+        <class>entities.Examen</class>
+        <class>entities.KeyNote</class>
+        <class>entities.NoteEtudiant</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/TrainMan"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="root"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="TrainingManager2" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>jdbc/TrainMan</jta-data-source>
+        <class>entities.Etudiant</class>
+        <class>entities.Adresse</class>
+        <class>entities.Administrateur</class>
+        <class>entities.Formation</class>
+        <class>entities.Chapitre</class>
+        <class>entities.Centre</class>
+        <class>entities.Localisation</class>
+        <class>entities.Examen</class>
+        <class>entities.KeyNote</class>
+        <class>entities.NoteEtudiant</class>
+        <properties>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.transaction.jta.platform"
+                      value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
+        </properties>
+    </persistence-unit>
+</persistence>
